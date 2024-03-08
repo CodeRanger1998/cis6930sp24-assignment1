@@ -9,7 +9,7 @@ def test_redactNames():
         text = "John Smith"
         doc = getDocFromText(text)
         redacted = redactNames(text=text,doc=doc)
-        if redacted[0] == "*"*len(text):
+        if redacted[0] == "\u2588":
             pass
         else:
             print("Error while redacting names",file=sys.stderr)
@@ -26,7 +26,7 @@ def test_redactDates():
         text = "4 November 2024"
         doc = getDocFromText(text)
         redacted = redactDates(text=text,doc=doc)
-        if redacted[0] == "*"*len(text):
+        if redacted[0] == "\u2588":
             pass
         else:
             print("Error while redacting dates",file=sys.stderr)
@@ -42,7 +42,7 @@ def test_redactPhones():
     try:
         text = "352-176-7481"
         redacted = redactPhones(text=text)
-        if redacted[0] == "*"*len(text):
+        if redacted[0] == "\u2588":
             pass
         else:
             print("Error while redacting phone",file=sys.stderr)
@@ -58,7 +58,7 @@ def test_redactAddresses():
     try:
         text = "3800 SW 34TH ST"
         redacted = redactAddresses(text=text)
-        if redacted[0] == "*"*len(text):
+        if redacted[0] == "\u2588":
             pass
         else:
             print("Error while redacting addresses "+redacted,file=sys.stderr)
