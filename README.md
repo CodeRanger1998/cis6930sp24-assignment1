@@ -141,6 +141,18 @@ pipenv run python censoror.py --input '*.txt' \
   - Checks if the redacted text matches the expected output (full block character).
   - Raises an assertion error if the redacted text does not match the expected output or an exception occurs.
 
+## Stats File Contents
+
+The `stats.txt` file will be created in the output directory. The `stats.txt` file contains statistics regarding the redaction process performed on the input text files. Each line in the `stats.txt` file corresponds to a processed input file and includes the following information:
+
+- **File Name:** The name of the input file that was processed.
+- **Number of Names Redacted:** The count of names redacted from the text in the input file.
+- **Number of Dates Redacted:** The count of dates redacted from the text in the input file.
+- **Number of Phones Redacted:** The count of phone numbers redacted from the text in the input file.
+- **Number of Addresses Redacted:** The count of addresses redacted from the text in the input file.
+
+This file provides an overview of the sensitive information redacted from each input file, allowing users to understand the extent of the data protection applied during the redaction process.
+
 ### Running the Tests
 
 To run the tests, execute the following command in the terminal:
