@@ -26,7 +26,7 @@ def censor_text(text, stats, censor_names=True, censor_dates=True, censor_phones
 
     if censor_address:
         # Redact addresses from the text and get the redaction statistics
-        text, addressStat = nlp.redactAddresses(text=text)
+        text, addressStat = nlp.redactAddresses(text=text,doc=doc)
         statString = statString + '\nNumber of Addresses redacted: ' + str(addressStat)
 
     return text, statString

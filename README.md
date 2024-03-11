@@ -76,10 +76,11 @@ pipenv run python censoror.py --input '*.txt' \
   - `doc`: Processed Spacy document object.
 - **Returns:** Tuple containing the redacted text and the number of redacted names.
 
-### `redactAddresses(text)`
+### `redactAddresses(text,doc)`
 - **Description:** Redacts addresses from the text.
 - **Parameters:**
   - `text`: Input text containing addresses.
+  - `doc`: Processed Spacy document object.
 - **Returns:** Tuple containing the redacted text and the number of redacted addresses.
 
 ### `censor_text(text, stats, censor_names=True, censor_dates=True, censor_phones=True, censor_address=True)`

@@ -57,7 +57,8 @@ Testing functions redactAddresses
 def test_redactAddresses():
     try:
         text = "3800 SW 34TH ST"
-        redacted = redactAddresses(text=text)
+        doc = getDocFromText(text)
+        redacted = redactAddresses(text=text,doc=doc)
         if redacted[0] == "\u2588":
             pass
         else:
