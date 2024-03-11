@@ -53,14 +53,26 @@ def redactNames(text, doc):
     # Return the redacted text and the number of names found
     return (text, len(names) + len(persons))
 
-def redactAddresses(text):
+def redactAddresses(text, doc):
     # Parse the text using CommonRegex to extract street addresses
     parsed_text = CommonRegex(text)
     street_addresses = parsed_text.street_addresses
     # Replace each street address with the full block character (█)
     for street_address in street_addresses:
         text = text.replace(street_address, '\u2588')
+    
+    locations = []
+    for entity in doc.ents:
+        # Check if the entity is a date or time
+        if entity.label_ == 'GPE' or entity.label_ == 'LOC':
+            locations.append(entity.text)
+    # Sort the dates by length in descending order
+    locations.sort(key=len, reverse=True)
+    # Replace each date with the full block character (█)
+    for location in locations:
+        text = text.replace(location, '\u2588')
     # Return the redacted text and the number of street addresses found
+    
     return (text, len(street_addresses))
 
 def getDocFromText(text):
